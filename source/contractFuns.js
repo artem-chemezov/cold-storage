@@ -62,32 +62,42 @@ let bytecode = "0x608060405234801561001057600080fd5b506040516105bd3803806105bd83
 let provider = ethers.getDefaultProvider('ropsten');
 
 // Load the wallet to deploy the contract with
-let privateKey = '0x0123456789012344444401234567890123456783332345678901234567890123';
+let privateKey = '0x6aa6b11778e120f4e856693953c07b2c679397763fa8afc6d5984425bc456f1a';
 let wallet = new ethers.Wallet(privateKey, provider);
-
 // Deployment is asynchronous, so we use an async IIFE
 (async function() {
+    let overrides = {
+
+        // The maximum units of gas for the transaction to use
+        gasLimit: 376000,
+    
+        // The price (in wei) per unit of gas
+        gasPrice: ethers.utils.parseUnits('9.0', 'gwei'),
+    
+        // The nonce to use in the transaction
+        nonce: 123,
+    
+        // The amount to send with the transaction (i.e. msg.value)
+        //value: utils.parseEther('1.0'),
+    
+        // The chain ID (or network ID) to use
+        //chainId: 1
+    
+    }
+
 
     // Create an instance of a Contract Factory
     let factory = new ethers.ContractFactory(abi, bytecode, wallet);
 
     // Notice we pass in "Hello World" as the parameter to the constructor
-    let contract = await factory.deploy("Hello World");
+    let transaction = await factory.getDeployTransaction("Hello World", overrides);
 
-    // The address the Contract WILL have once mined
-    // See: https://ropsten.etherscan.io/address/0x2bd9aaa2953f988153c8629926d22a6a5f69b14e
-    console.log(contract.address);
-    // "0x2bD9aAa2953F988153c8629926D22A6a5F69b14E"
+    let signPromise = wallet.sign(transaction);
+    console.log("wallet : " + wallet.address);
 
-    // The transaction that was sent to the network to deploy the Contract
-    // See: https://ropsten.etherscan.io/tx/0x159b76843662a15bd67e482dcfbee55e8e44efad26c5a614245e12a00d4b1a51
-    console.log(contract.deployTransaction.hash);
-    // "0x159b76843662a15bd67e482dcfbee55e8e44efad26c5a614245e12a00d4b1a51"
+    signPromise.then((signedTransaction) => console.log("trans: " + signedTransaction));
 
-    // The contract is NOT deployed yet; we must wait until it is mined
-    await contract.deployed()
 
-    // Done! The contract is deployed.
 })();
     
 }
