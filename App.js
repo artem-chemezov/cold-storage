@@ -10,7 +10,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import { RNCamera } from 'react-native-camera';
 import { ethers, Wallet } from 'ethers';
 import  {createNewRandomWallet, createTransaction, createTransactionFromBarcode, saveWallet} from "./source/funs";
-
+import  {createContract} from "./source/contractFuns";
 
 import { StyleSheet, Text, View, Button } from 'react-native';
 
@@ -52,12 +52,8 @@ class CameraScreen extends React.Component {
 }
 
 class ButtonsScreen extends React.Component {
-  
-  static navigationOptions = {
-    title: 'Welcome',
-  }
 
-   constructor(props){
+  constructor(props){
      super(props);
      this.state = {
      name: '',
@@ -147,6 +143,13 @@ class ButtonsScreen extends React.Component {
           navigate('Profile')
           }}>
         </Button>
+        <View style={styles.buttonStyle}>
+          <Button
+                onPress={() => {createContract()}} 
+                title='Create contract'
+                color='#4169E1'>
+          </Button>
+        </View>
      </View>
    );
    }
