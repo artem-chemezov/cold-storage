@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 
-export class BarcodeScan extends React.Component {  
+export class BarcodeScan extends React.Component {
 
-  render() {  
+  render() {
       return (
         <View style={styles.container}>
           <RNCamera
@@ -50,8 +50,9 @@ export class BarcodeScan extends React.Component {
           </RNCamera>
         </View>
       )
-  }  
+  }
 }
+
 
 const styles = StyleSheet.create({
   container: {

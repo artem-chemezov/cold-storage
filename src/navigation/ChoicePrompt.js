@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 export class ChoicePrompt extends React.Component{
-  
+
     render() {
         return (
           <View style={styles.choicePrompt}>
@@ -20,7 +20,8 @@ export class ChoicePrompt extends React.Component{
                <Text
                     style={styles.button}
                      onPress={() => {
-                        //for BITCOIN
+                         const { navigate } = this.props.navigation;
+                         navigate('Bitcoin')
                      }}>Bitcoin</Text>
              </View>
           </View>
