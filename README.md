@@ -12,21 +12,23 @@ https://xn--d1acnqm.xn--j1amh/%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B8/%D0%BA%D0%B0%
 
 3.git clone https://github.com/artem-chemezov/cold-storage
 
-4.cd cold-storage
+4. перейти в ветку BitcoreExperiments 
 
-5.Создать файл local.properties по адресу cold-storage\android
+5.cd cold-storage
 
-6.в файле local.properties прописать путь к AndroidSDK:
+6.Создать файл local.properties по адресу cold-storage\android
+
+7.в файле local.properties прописать путь к AndroidSDK:
 
 sdk.dir = C:\'путь к sdk'
 
-7.npm install
+8.npm install
 
-8.Перейти по адресу \node_modules\metro-config\src\defaults\blacklist.js и заменить sharedBlacklist, как в комментарии
+9.Перейти по адресу \node_modules\metro-config\src\defaults\blacklist.js и заменить sharedBlacklist, как в комментарии
 
 https://stackoverflow.com/questions/58117377/react-native-start-giving-invalid-regular-expression-invalid-error
 
-9.   .\node_modules.bin\rn-nodeify --hack --install
+10.   .\node_modules.bin\rn-nodeify --hack --install
 
 
 Запуск приложения при подключенном через USB на Android-устройстве:
