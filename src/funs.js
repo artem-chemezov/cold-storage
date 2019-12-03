@@ -1,5 +1,6 @@
 import { ethers } from 'ethers';
 //mport * as RNFS from 'react-native-fs';
+import bitcore from 'bitcore-lib';
 
 export function createNewRandomWallet(){
     //TODO autentification
@@ -11,7 +12,7 @@ export function createNewRandomWallet(){
 }
 
 export function createTransaction(to, gasLimit, gasPrice, value, chainId, tr_data, nonce){
-    
+
     let data = {
         nonce: nonce,
         gasLimit: gasLimit,
@@ -29,20 +30,20 @@ export function createTransaction(to, gasLimit, gasPrice, value, chainId, tr_dat
 export function createTransactionFromBarcode(barcode){
 
     let json = JSON.parse(barcode)
-    
+
     return {
                 nonce: json.nonce,
                 gasLimit: json.gasLimit,
-                gasPrice: ethers.utils.bigNumberify(json.gasPrice)._hex,//.toString(16),//_hex, 
-                to: json.to, 
-                value: ethers.utils.parseEther(json.value + "")._hex,//.toString(16),//._hex, 
+                gasPrice: ethers.utils.bigNumberify(json.gasPrice)._hex,//.toString(16),//_hex,
+                to: json.to,
+                value: ethers.utils.parseEther(json.value + "")._hex,//.toString(16),//._hex,
                 data: json.data,
-                chainId: ethers.utils.getNetwork(json.chainId).chainId    
-                    
+                chainId: ethers.utils.getNetwork(json.chainId).chainId
+
             }
-    
-                    
-    
+
+
+
 }
 /*
 export function saveWallet(wallet, name, password){
