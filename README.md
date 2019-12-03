@@ -40,4 +40,4 @@ https://stackoverflow.com/questions/58117377/react-native-start-giving-invalid-r
  
  1.4 Далее в главном меню настроек появится пунк "Для разработчиков", нужно перейти в него и включить (если не включен)
 
- 2. В папке cold-storage запускаем react-natie run-android
+ 2. В папке cold-storage запускаем react-native run-android
