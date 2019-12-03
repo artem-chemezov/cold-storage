@@ -22,34 +22,9 @@ sdk.dir = C:\'путь к sdk'
 
 7.npm install
 
-8.Перейти по адресу \node_modules\metro-config\src\defaults\blacklist.js и заменить этот код
+8.Перейти по адресу \node_modules\metro-config\src\defaults\blacklist.js и заменить этот sharedBlacklist, как в комментарии
 
-var sharedBlacklist = [
-
-  /node_modules[/\\]react[/\\]dist[/\\].*/,
-  
-  /website\/node_modules\/.*/,
-  
-  /heapCapture\/bundle\.js/,
-  
-  /.*\/__tests__\/.*/
-  
-];
-
-на этот
-
-var sharedBlacklist = [
-
-  /node_modules[\/\\]react[\/\\]dist[\/\\].*/,
-  
-  /website\/node_modules\/.*/,
-  
-  /heapCapture\/bundle\.js/,
-  
-  /.*\/__tests__\/.*/
-  
-];
-
+https://stackoverflow.com/questions/58117377/react-native-start-giving-invalid-regular-expression-invalid-error
 
 9.\node_modules.bin\rn-nodeify --hack --install
 
