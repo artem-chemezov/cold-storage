@@ -28,7 +28,7 @@ sdk.dir = C:\'путь к sdk'
 
 https://stackoverflow.com/questions/58117377/react-native-start-giving-invalid-regular-expression-invalid-error
 
-10.   .\node_modules.bin\rn-nodeify --hack --install
+10.   .\node_modules\.bin\rn-nodeify --hack --install
 
 
 Запуск приложения при подключенном через USB на Android-устройстве:
