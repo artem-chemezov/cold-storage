@@ -19,11 +19,15 @@ export class BarcodeScan extends React.Component {
                   onGoogleVisionBarcodesDetected={({ barcodes }) => {
                     let barcode = barcodes[0];
                     let show = JSON.parse(barcode.data)
+                    let from = this.props.navigation.getParam('button').state.wallet.address
+                    console.log(from)
                     this.props.navigation.navigate('Ethereum', {barcode: barcode})
                     
                     Alert.alert(
-                      'Transaction',
-                      'to: ' + show.to + '\n' +
+                      'Transaction details',
+                      '\n' + 
+                      'from: ' + '\n' + from + '\n' + '\n' +
+                      'to: ' + '\n' + show.to + '\n' + '\n' +
                       'Gas Limit: ' + show.gasLimit + '\n' +
                       'Gas Price: ' + show.gasPrice + '\n' +
                       'Value: ' + show.value + '\n' +
@@ -38,7 +42,7 @@ export class BarcodeScan extends React.Component {
                           onPress: () => console.log('Cancel Pressed'),
                           style: 'cancel',
                         },
-                        {text: 'OK', onPress: () => this.props.navigation.getParam('button').onClickSignTransaction()},
+                        {text: 'Sign', onPress: () => this.props.navigation.getParam('button').onClickSignTransaction()},
                       ],
                       {cancelable: false},
                     );
