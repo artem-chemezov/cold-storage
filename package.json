@@ -15,7 +15,7 @@
     "@quasar/extras": "^1.0.0",
     "bitcoinjs-lib": "^5.1.7",
     "cordova": "^9.0.0",
-    "electron": "^7.1.7",
+    "electron": "^18.3.7",
     "ethers": "^4.0.44",
     "quasar": "^1.0.0",
     "vuejs-dialog": "^1.4.1"
